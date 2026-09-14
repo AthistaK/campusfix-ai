@@ -2,9 +2,10 @@ from flask import Flask, request, jsonify, render_template
 import sqlite3
 from datetime import datetime
 import re
-
+import os
+import tempfile
 app = Flask(__name__)
-DB = "campusfix.db"
+DB = os.path.join(tempfile.gettempdir(), "campusfix.db")
 
 CATEGORIES = {
     "Network": ["wifi", "wi-fi", "internet", "network", "router", "connection"],
