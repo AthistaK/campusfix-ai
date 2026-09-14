@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusFix AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">CampusFix <span>AI</span></div>
+      <div class="tagline">From student complaints to campus intelligence.</div>
+    </div>
+    <button class="profile-btn" onclick="openStudentProfile()">
+    My Profile
+     </button>
+    <button class="primary" onclick="openModal()">+ Report Problem</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AI INCIDENT INTELLIGENCE</p>
+        <h1>Your campus has problems.<br><span>CampusFix knows where they are.</span></h1>
+        <p class="hero-text">Turn scattered student complaints into structured incidents, detect duplicates, and prioritize what needs attention first.</p>
+      </div>
+      <div class="hero-card">
+        <div class="pulse"></div>
+        <strong>AI Incident Engine</strong>
+        <p>Classify → Cluster → Prioritize</p>
+      </div>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="section-head">
+      <div>
+        <p class="eyebrow">LIVE CAMPUS</p>
+        <h2>AI Priority Queue</h2>
+      </div>
+      <button class="secondary" onclick="loadAll()">Refresh</button>
+    </section>
+
+    <section class="layout">
+      <div id="incidentList" class="incident-list"></div>
+      <aside class="side-panel">
+        <h3>How CampusFix works</h3>
+        <div class="step"><b>01</b><div><strong>Detect</strong><p>Understand the student's report.</p></div></div>
+        <div class="step"><b>02</b><div><strong>Cluster</strong><p>Find related complaints.</p></div></div>
+        <div class="step"><b>03</b><div><strong>Prioritize</strong><p>Rank incidents by impact.</p></div></div>
+        <div class="mini-map">
+          <div class="map-title">Campus Status</div>
+          <div class="map-grid">
+            <button onclick="filterLocation('CSE Block')">CSE</button>
+            <button onclick="filterLocation('Library')">LIB</button>
+            <button onclick="filterLocation('Hostel A')">HA</button>
+            <button onclick="filterLocation('Hostel B')">HB</button>
+            <button onclick="filterLocation('Cafeteria')">CAF</button>
+            <button onclick="filterLocation('Main Gate')">GATE</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" onclick="closeModal()">×</button>
+      <p class="eyebrow">NEW REPORT</p>
+      <h2>Report a campus problem</h2>
+      <p class="muted">Describe it naturally. CampusFix will analyze it.</p>
+
+      <label>Your name</label>
+      <input id="studentName" placeholder="e.g. Drishya">
+
+      <label>Where?</label>
+      <select id="location">
+        <option>CSE Block</option>
+        <option>Library</option>
+        <option>Hostel A</option>
+        <option>Hostel B</option>
+        <option>Main Gate</option>
+        <option>Cafeteria</option>
+        <option>Sports Complex</option>
+        <option>Other</option>
+      </select>
+
+      <label>What happened?</label>
+      <textarea id="description" rows="5" placeholder="Example: Wi-Fi is completely down on the second floor of CSE Block since morning..."></textarea>
+
+      <button class="primary full" onclick="analyzeAndSubmit()">Analyze & Submit</button>
+      <div id="analysis" class="analysis hidden"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="/static/app.js"></script>
+  <footer class="site-footer">
+    <p>Developed by <strong>Drishya Bajpai</strong></p>
+   </footer>
+</body>
+</html>
